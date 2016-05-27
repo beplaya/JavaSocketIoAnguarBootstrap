@@ -1,4 +1,15 @@
 # JavaSocketIoAnguarBootstrap
 
 
-##### Bootstrap a simple Socket IO app with Java in the back and JS in the front with angular JSand bootstrap css.
+##### Bootstrap a simple Socket IO app with Java in the back and JS in the front with angularJS and bootstrap css.
+
+Run server: 
+ - mvn exec:java
+
+Run client: 
+ - install dependencies
+```
+cd public/
+bower install
+```
+ - Open public/index.html with your favorite browser
