@@ -4,10 +4,13 @@
 ##### Bootstrap a simple Socket IO app with Java in the back and JS in the front with angularJS and bootstrap css.
 
 Run server: 
- - mvn exec:java
+```
+mvn exec:java
+```
+
 
 Run client: 
- - install dependencies
+ - Install dependencies
 ```
 cd public/
 bower install
