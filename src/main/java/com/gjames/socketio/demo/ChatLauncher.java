@@ -3,6 +3,9 @@ package com.gjames.socketio.demo;
 import com.corundumstudio.socketio.listener.*;
 import com.corundumstudio.socketio.*;
 
+import java.util.Collection;
+import java.util.function.Consumer;
+
 public class ChatLauncher {
 
     public static void main(String[] args) throws InterruptedException {
@@ -17,9 +20,11 @@ public class ChatLauncher {
         final SocketIOServer server = new SocketIOServer(config);
         server.addEventListener("chatevent", ChatObject.class, new DataListener<ChatObject>() {
             @Override
-            public void onData(SocketIOClient client, ChatObject data, AckRequest ackRequest) {
+            public void onData(final SocketIOClient sendingClient, ChatObject data, AckRequest ackRequest) {
                 // broadcast messages to all clients
                 server.getBroadcastOperations().sendEvent("chatevent", data);
+                // broadcast only to sendingClient
+                sendingClient.sendEvent("chateventSent", data);
             }
         });
 
